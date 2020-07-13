@@ -1,0 +1,9 @@
+.home_section {
+    background: url('../../assets/images/back.jpg') !important;
+    height: 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 720px;
+    box-shadow: inset 0 0 0 2000px rgba(255, 0, 150, 0.3) !important;
+}

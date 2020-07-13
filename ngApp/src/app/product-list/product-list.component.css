@@ -1,0 +1,38 @@
+.editbtn {
+    color: green !important;
+    background-color: #fff !important;
+    border-color: green !important;
+    margin-right: 10px;
+}
+
+.editbtn:hover {
+    color: #fff !important;
+    background-color: green !important;
+    border-color: #fff !important;
+}
+
+.delbtn {
+    color: tomato !important;
+    background-color: #fff !important;
+    border-color: tomato !important;
+}
+
+.delbtn:hover {
+    color: #fff !important;
+    background-color: tomato !important;
+    border-color: #fff !important;
+}
+
+.card {
+    margin-top: 40px;
+}
+
+.card-header {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+    width: 100% !important;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            {{title}}
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="table">
+                    <thead>
+                        <tr>
+                            <th width="10%">
+                                <button class="btn btn-primary" (click)="toggleImage()">
+                            {{showImage?'Hide':'Show'}} Image
+                            
+                        </button>
+                            </th>
+                            <th width="20%">Product</th>
+                            <th width="10%">Code</th>
+                            <th width="15%">Available</th>
+                            <th width="10%">Price</th>
+                            <th width="10%">5 Star Rating</th>
+                            <th width="20%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <td><img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'></td>
+                            <td>{{ product.productName }}</td>
+                            <td>{{ product.productCode }}</td>
+                            <td>{{ product.releaseDate }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.starRating }}</td>
+                            <td>
+                                <!-- <a href="/product/edit/{{ product._id }}"><button class="editbtn btn btn-warning"><b><i class="fa fa-edit"></i> Edit</b></button></a>
+                        <a href="/product/delete/{{ product._id }}"><button class="delbtn btn btn-warning"><b><i class="fa fa-trash"></i> Delete</b></button></a> -->
+                                <a [routerLink]="['/product/edit',product._id ]"><button class="editbtn btn btn-warning"><b><i class="fa fa-edit"></i> Edit</b></button></a>
+                                <a (click)="deleteProduct(product._id)"><button class="delbtn btn btn-warning"><b><i class="fa fa-trash"></i> Delete</b></button></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

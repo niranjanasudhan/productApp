@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            {{title}}
+        </div>
+        <div class="card-body">
+            <form [formGroup]="newProductForm" class="form-horizontal" (ngSubmit)="AddProduct()">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Id:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_id').invalid && newProductForm.get('p_id').touched" formControlName="p_id" id="p_id" placeholder="Enter Product Id" name="p_id" [(ngModel)]="productItem.productId" required>
+                        <div *ngIf="newProductForm.get('p_id').invalid && newProductForm.get('p_id').touched">
+                            <small *ngIf="newProductForm.get('p_id').errors?.required" class="text-danger">Product Id is required</small>
+                            <small *ngIf="newProductForm.get('p_id').errors?.pattern" class="text-danger">Product Id must be Number </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_name').invalid && newProductForm.get('p_name').touched" formControlName="p_name" id="p_name" placeholder="Enter Product Name" name="p_name" [(ngModel)]="productItem.productName"
+                            required>
+                        <div *ngIf="newProductForm.get('p_name').invalid && newProductForm.get('p_name').touched">
+                            <small *ngIf="newProductForm.get('p_name').errors?.required" class="text-danger">Product name is required</small>
+                            <!-- <small *ngIf="newProductForm.get('p_name').errors?.minlength" class="text-danger">Minimum 6 characters</small> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Code:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_code').invalid && newProductForm.get('p_code').touched" formControlName="p_code" id="p_code" placeholder="Enter Product Code" name="p_code" [(ngModel)]="productItem.productCode"
+                            required>
+                        <div *ngIf="newProductForm.get('p_code').invalid && newProductForm.get('p_code').touched">
+                            <small *ngIf="newProductForm.get('p_code').errors?.required" class="text-danger">Product Code is required</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Date:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_date').invalid && newProductForm.get('p_date').touched" formControlName="p_date" id="p_date" placeholder="Enter Product Date" name="p_date" [(ngModel)]="productItem.releaseDate"
+                            required>
+                        <div *ngIf="newProductForm.get('p_date').invalid && newProductForm.get('p_date').touched">
+                            <small *ngIf="newProductForm.get('p_date').errors?.required" class="text-danger">Date is required</small>
+                            <!-- <small *ngIf="newProductForm.get('password').errors?.minlength" class="text-danger">Minimum 6 characters</small> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Description:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_desc').invalid && newProductForm.get('p_desc').touched" formControlName="p_desc" id="p_desc" placeholder="Enter Product Description" name="p_desc" [(ngModel)]="productItem.description"
+                            required>
+                        <div *ngIf="newProductForm.get('p_desc').invalid && newProductForm.get('p_desc').touched">
+                            <small *ngIf="newProductForm.get('p_desc').errors?.required" class="text-danger">Description is required</small>
+                            <!-- <small *ngIf="newProductForm.get('password').errors?.minlength" class="text-danger">Minimum 6 characters</small> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Price:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_price').invalid && newProductForm.get('p_price').touched" formControlName="p_price" id="p_price" placeholder="Enter Product Price" name="p_price" [(ngModel)]="productItem.price"
+                            required>
+                        <div *ngIf="newProductForm.get('p_price').invalid && newProductForm.get('p_price').touched">
+                            <small *ngIf="newProductForm.get('p_price').errors?.required" class="text-danger">Price is required</small>
+                            <small *ngIf="newProductForm.get('p_price').errors?.pattern" class="text-danger">Enter valid price</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product Star Rating:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_rating').invalid && newProductForm.get('p_rating').touched" formControlName="p_rating" id="p_rating" placeholder="Enter Product Star rating" name="p_rating" [(ngModel)]="productItem.starRating"
+                            required>
+                        <div *ngIf="newProductForm.get('p_rating').invalid && newProductForm.get('p_rating').touched">
+                            <small *ngIf="newProductForm.get('p_rating').errors?.required" class="text-danger">Rating is required</small>
+                            <small *ngIf="newProductForm.get('p_rating').errors?.pattern" class="text-danger">Enter Valid Rating</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="email">Product imageUrl:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [class.is-invalid]="newProductForm.get('p_image').invalid && newProductForm.get('p_image').touched" formControlName="p_image" id="p_image" placeholder="Enter Product Image Url" name="p_image" [(ngModel)]="productItem.imageUrl"
+                            required>
+                        <div *ngIf="newProductForm.get('p_image').invalid && newProductForm.get('p_image').touched">
+                            <small *ngIf="newProductForm.get('p_image').errors?.required" class="text-danger">image url is required</small>
+                            <small *ngIf="newProductForm.get('p_image').errors?.pattern" class="text-danger">Enter Valid Url</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" [disabled]="newProductForm.invalid" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-7 log_img"></div>
+    <div class="col-md-5">
+        <div class="form">
+
+            <h1 class="log_head">Login</h1>
+            <hr>
+            <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" [class.is-invalid]="loginForm.get('email').invalid && loginForm.get('email').touched" formControlName="email" class="form-control" name="email" id="exampleInputEmail1 " [(ngModel)]="loginUserDetails.email" aria-describedby="emailHelp "
+                        placeholder="Email " required>
+                    <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                        <small *ngIf="loginForm.get('email').errors?.required" class="text-danger">Email is required</small>
+                        <small *ngIf="loginForm.get('email').errors?.pattern" class="text-danger">Invalid Email Format</small>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="exampleInputPassword1 ">Password</label>
+                    <input type="password" formControlName="password" class="form-control " [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched" name="password" [(ngModel)]="loginUserDetails.password" id="exampleInputPassword1 " placeholder="Password "
+                        required>
+                    <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                        <small *ngIf="loginForm.get('password').errors?.required" class="text-danger">Password is required</small>
+                        <small *ngIf="loginForm.get('password').errors?.minlength" class="text-danger">Minimum 6 characters</small>
+                    </div>
+                </div>
+
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary ">login</button>
+            </form>
+        </div>
+    </div>
+</div>
